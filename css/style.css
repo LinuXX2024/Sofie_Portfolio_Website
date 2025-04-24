@@ -442,7 +442,7 @@ header{
     position: absolute;
     top: 60%;
     left: 45%;
-    width: 100px;
+    width: 10%;
     z-index: 1;
     transition: transform 0.1s ease-in-out;
 }
@@ -518,16 +518,6 @@ header{
     z-index: 5;
     background-color: var(--black);
 }
-
-/*
-.projectPreviewComponent:nth-child(2) {
-    transition-delay: 1s;
-}
-
-.projectPreviewComponent::nth-child(3) {
-    transition-delay: 2s;
-}
-    */
 
 .projectPreviewHidden{
     opacity: 0;
