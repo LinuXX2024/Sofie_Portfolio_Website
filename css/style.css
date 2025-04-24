@@ -415,6 +415,7 @@ header{
     margin-left: auto;
     margin-right: auto;
     background-color: black;
+    z-index: 0;
 }
 
 .project_title{
@@ -430,19 +431,26 @@ header{
     font-family: LEMONMILK, entsans ,Baskerville;
     font-size: var(--projecttitle-size);
     top: 15%;
+    z-index: 1;
 }
 
 .project_link{
-    transform: scale(1);
-    transition: transform 0.5s ease-out;
+    z-index: 2;
+}
+
+.project_link_icon{
     position: absolute;
     top: 60%;
     left: 45%;
-    width: 5%;
+    width: 100px;
+    z-index: 1;
+    transition: transform 0.1s ease-in-out;
 }
 
-.project_link:hover{
-    left: 46%;
+.project_link_icon:hover{
+    transform: scale(80%);
+    translate: 15px;
+    
 }
 
 .intro{
@@ -511,6 +519,26 @@ header{
     background-color: var(--black);
 }
 
+/*
+.projectPreviewComponent:nth-child(2) {
+    transition-delay: 1s;
+}
+
+.projectPreviewComponent::nth-child(3) {
+    transition-delay: 2s;
+}
+    */
+
+.projectPreviewHidden{
+    opacity: 0;
+    transition: 2s;
+}
+
+.projectPreviewShow{
+    transform: scale(80%);
+    opacity: 1; 
+}
+
 .last_buffer{
     height: var(--last_buffer_height);
 }
@@ -559,7 +587,7 @@ header{
     border-color: #919191;
 }
 
-.Storm{
+.Showreel{
     width: 100%;
 }
 

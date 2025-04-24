@@ -19,7 +19,7 @@ let project2 = document.getElementById('project2')
 let project3 = document.getElementById('project3')
 let project4 = document.getElementById('project4')
 
-
+/*
 let title1 = document.getElementById('title1');
 let link1 = document.getElementById('link1');
 let title2 = document.getElementById('title2');
@@ -28,7 +28,7 @@ let title3 = document.getElementById('title3');
 let link3 = document.getElementById('link3');
 let title4 = document.getElementById('title4');
 let link4 = document.getElementById('link4');
-
+*/
 
 var styleElem = document.querySelector('.schriftzug_font_small').style;
 var styleSocials = document.querySelector('.socials').style;
@@ -152,7 +152,7 @@ window.addEventListener('scroll', ()=> {
    
        
     //styleElem.setProperty('--value', '\''+ value +'\'');
- 
+  
     if(scrollInPercent >= 2.4) {
         if(value >= 200 && value <= 850){
             wrapper.style.height = 150 * ((1 - (value-200)/650 ) + 5/10 * ((value-200)/650 )) +'vh';
@@ -166,6 +166,7 @@ window.addEventListener('scroll', ()=> {
             buffer2.style.height = 90 * ((1 - (value-2250)/250 ) + 1/5 * ((value-2250)/250 )) +'vh';
         }
     
+        /*
         var initial_project_width = Number(styleRoot.getPropertyValue('--initial_project_width'));
 
         if(value >= begin(0) && value <= end(0)){
@@ -224,7 +225,9 @@ window.addEventListener('scroll', ()=> {
             title4.style.transition = 'transform 0.5s ease-in';
             link4.style.transition = 'transform 0.5s ease-in'; 
         }
+        */
     }
+        
 });
 
 
@@ -337,3 +340,18 @@ window.addEventListener('mousemove', (e)=> {
 });
 */
 
+//observer for the project tiltes that triggers the pop up animation
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        console.log(entry) 
+        if (entry.isIntersecting) {
+            entry.target.classList.add('projectPreviewShow');
+        } else {
+            entry.target.classList.remove('projectPreviewShow');
+        }
+    })
+});
+
+const projectPreview = document.querySelectorAll('.projectPreviewHidden');
+projectPreview.forEach((element) => observer.observe(element));
